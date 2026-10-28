@@ -185,9 +185,9 @@ footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{c
 </head>
 <body>
 <header class="nav" id="nav"><div class="wrap">
-  <a href="index.html" aria-label="Zombyss home" style="margin-right:auto;display:flex"><img class="wm" src="assets/web/logo-wordmark.svg" alt="Zombyss" width="236" height="64"></a>
-  <a class="l" href="#modes">Modes</a><a class="l" href="#heroes">Heroes</a><a class="l" href="#compete">Ranked</a><a class="l" href="#news">News</a><a class="l" href="guide.html">How to play</a>
-  <a class="btn sm" href="play.html">Play free</a>
+  <a href="./" aria-label="Zombyss home" style="margin-right:auto;display:flex"><img class="wm" src="assets/web/logo-wordmark.svg" alt="Zombyss" width="236" height="64"></a>
+  <a class="l" href="#modes">Modes</a><a class="l" href="#heroes">Heroes</a><a class="l" href="#compete">Ranked</a><a class="l" href="#news">News</a><a class="l" href="guide">How to play</a>
+  <a class="btn sm" href="play">Play free</a>
 </div></header>
 
 <main>
@@ -198,7 +198,7 @@ footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{c
     <h1 id="heroT">20 survivors. One walks out.</h1>
     <p class="sub">A free multiplayer zombie game. Outlast the horde, outplay your friends, and if you get bitten, hunt them down.</p>
     <div class="cta">
-      <a class="btn big" href="play.html">Play free now</a>
+      <a class="btn big" href="play">Play free now</a>
       <a class="store" id="gp" href="#" aria-disabled="true"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M1 1l12 11L1 23c-.6-.3-1-.9-1-1.7V2.7C0 1.9.4 1.3 1 1z" fill="#34d399"/><path d="M17 8l-4 4 4 4 4-2.4c1.3-.8 1.3-2.4 0-3.2z" fill="#fbbf24"/><path d="M1 1c.4-.2 1-.2 1.6.1L17 8l-4 4z" fill="#60a5fa"/><path d="M13 12l4 4-14.4 6.9c-.6.3-1.2.3-1.6.1z" fill="#f87171"/></svg><span id="gpL">Coming soon to<b>Google Play</b></span></a>
       <a class="store" id="as" href="#" aria-disabled="true"><svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true"><path fill="#fff" d="M16.4 12.7c0-2.9 2.4-4.3 2.5-4.4-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-2 0-3.8 1.2-4.8 2.9-2.1 3.6-.5 8.8 1.5 11.7 1 1.4 2.1 3 3.6 2.9 1.5-.1 2-.9 3.8-.9 1.7 0 2.2.9 3.8.9 1.6 0 2.6-1.4 3.5-2.9 1.1-1.6 1.6-3.2 1.6-3.3 0 0-3.1-1.2-3.1-4.6zM13.5 4.1c.8-1 1.3-2.3 1.2-3.6-1.2 0-2.6.8-3.4 1.8-.8.9-1.4 2.2-1.3 3.5 1.3.1 2.6-.7 3.5-1.7z"/></svg><span id="asL">Coming soon to<b>App Store</b></span></a>
     </div>
@@ -284,19 +284,19 @@ footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{c
   <details><summary>Do I need an account?</summary><p>Not for Normal matches. Ranked and Tournaments need a free account so your rank and scores are saved on every device.</p></details>
   <details><summary>How long do I wait for a match?</summary><p>Never more than about 20 seconds. Every Normal and Ranked match has 20 survivors.</p></details>
   <details><summary>Can I play with my friends?</summary><p>Yes. Press Normal or Ranked, share your party code, and the leader presses Find match. Up to four friends go in together. You can also make a custom room with your own rules.</p></details>
-  <details><summary>How do I learn the controls?</summary><p>The game shows a short guide the first time you play, and the full <a href="guide.html">how-to-play guide</a> explains everything.</p></details>
+  <details><summary>How do I learn the controls?</summary><p>The game shows a short guide the first time you play, and the full <a href="guide">how-to-play guide</a> explains everything.</p></details>
 </div></section>
 
 <section class="final"><div class="wrap">
   <img src="assets/web/logo-wordmark.svg" alt="Zombyss" loading="lazy" width="520" height="142">
   <p>The horde is waiting. Your friends are already inside.</p>
-  <a class="btn big" href="play.html">Play free now</a>
+  <a class="btn big" href="play">Play free now</a>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <a class="fl" href="index.html"><img src="assets/web/logo-wordmark.svg" alt="Zombyss" width="125" height="34"></a>
-  <a href="guide.html">How to play</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a>
+  <a class="fl" href="./"><img src="assets/web/logo-wordmark.svg" alt="Zombyss" width="125" height="34"></a>
+  <a href="guide">How to play</a><a href="privacy">Privacy</a><a href="support">Support</a>
   <div class="socials" id="socials"></div>
   <span>© <span id="yr">2026</span> Tublya</span>
 </div></footer>
@@ -324,7 +324,7 @@ footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{c
     $('#info').innerHTML=`<h3 class="cls">${esc(h.cls)} · ${h.fem?'Heroine':'Hero'}</h3><div class="meta"><span>Hearts <b>${'♥'.repeat(h.hp)}</b></span><span>Speed ${h.spd}</span></div>
       <div class="skill"><span class="k">Q</span><div><h4>${esc(h.q.n)}<span>${h.q.cd}s cooldown</span></h4><p>${esc(h.q.d)}</p></div></div>
       <div class="skill"><span class="k">E</span><div><h4>${esc(h.e.n)}<span>${h.e.cd}s cooldown</span></h4><p>${esc(h.e.d)}</p></div></div>
-      <p style="margin:6px 0 0"><a class="btn sm" href="play.html">Play as ${esc(h.name)}</a></p>`;
+      <p style="margin:6px 0 0"><a class="btn sm" href="play">Play as ${esc(h.name)}</a></p>`;
     document.querySelectorAll('#roster button').forEach(b=>b.setAttribute('aria-selected',String(+b.dataset.i===i)))}
   $('#roster').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(b)show(+b.dataset.i)});
   $('#roster').addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const n=(cur+(e.key==='ArrowRight'?1:H.length-1))%H.length;show(n);$('#tab'+n).focus()});
@@ -340,11 +340,11 @@ footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{c
   if(!api){$('#daily').innerHTML='<li class="empty">Leaderboards appear here once the game server is running.</li>';$('#ladder').innerHTML='';return}
   const get=p=>fetch(api+p).then(r=>r.ok?r.json():Promise.reject(r.status));
   get('/stats/public').then(j=>{if(j.players>=50){$('#count').textContent=j.players.toLocaleString();$('#countWrap').hidden=false}}).catch(()=>{});
-  get('/leaderboard/daily').then(j=>{const r=(j.rows||[]).slice(0,8);$('#daily').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.h)}<span>${esc(x.n)}</span><span class="v">${fmt(x.ms)}</span></li>`).join(''):'<li class="empty">Nobody has played today\'s challenge yet. <a href="play.html">Be first.</a></li>'}).catch(()=>{$('#daily').innerHTML='<li class="empty">The leaderboard is resting. Try again soon.</li>'});
-  get('/leaderboard/infect').then(j=>{const r=(j.rows||[]).slice(0,8);$('#infect').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.hero)}<span>${esc(x.name)}</span><span class="v">🧟 ${x.n}</span></li>`).join(''):'<li class="empty">Nobody has been infected yet this season. <a href="play.html">Start the outbreak.</a></li>'}).catch(()=>{$('#infect').innerHTML=''});
+  get('/leaderboard/daily').then(j=>{const r=(j.rows||[]).slice(0,8);$('#daily').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.h)}<span>${esc(x.n)}</span><span class="v">${fmt(x.ms)}</span></li>`).join(''):'<li class="empty">Nobody has played today\'s challenge yet. <a href="play">Be first.</a></li>'}).catch(()=>{$('#daily').innerHTML='<li class="empty">The leaderboard is resting. Try again soon.</li>'});
+  get('/leaderboard/infect').then(j=>{const r=(j.rows||[]).slice(0,8);$('#infect').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.hero)}<span>${esc(x.name)}</span><span class="v">🧟 ${x.n}</span></li>`).join(''):'<li class="empty">Nobody has been infected yet this season. <a href="play">Start the outbreak.</a></li>'}).catch(()=>{$('#infect').innerHTML=''});
   get('/leaderboard/rank').then(j=>{const r=(j.rows||[]).slice(0,8);$('#ladder').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.hero)}<span>${esc(x.name)}</span><span class="v">${x.rp} RP</span></li>`).join(''):'<li class="empty">The season has just begun. Your first ranked win puts you on top.</li>'}).catch(()=>{$('#ladder').innerHTML=''});
   get('/tournaments/current').then(j=>{const t=j.t;if(!t)return;const now=Date.now(),live=now>=t.starts&&now<t.ends,ms=(live?t.ends:t.starts)-now,d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,MN={ffa:'Solo',duo:'Duo',squad:'Team'};
-    $('#tourBox').innerHTML=`<div class="tour"><span class="when">${live?'Live now · ends in ':'Starts in '}${d?d+'d ':''}${h}h ${m}m · ${MN[t.mode]||'Solo'}</span><h3>${esc(t.name)}</h3>${(t.prizes||[]).length?`<ol class="prizes">${t.prizes.slice(0,5).map((p,i)=>`<li><span class="n">${i+1}</span><span>${esc(p)}</span></li>`).join('')}</ol>`:''}${t.sponsor?`<p class="empty">Prizes from ${esc(t.sponsor)}</p>`:''}<p style="margin:16px 0 0"><a class="btn sm" href="play.html">${live?'Enter the tournament':'Get ready'}</a></p></div>`}).catch(()=>{});
+    $('#tourBox').innerHTML=`<div class="tour"><span class="when">${live?'Live now · ends in ':'Starts in '}${d?d+'d ':''}${h}h ${m}m · ${MN[t.mode]||'Solo'}</span><h3>${esc(t.name)}</h3>${(t.prizes||[]).length?`<ol class="prizes">${t.prizes.slice(0,5).map((p,i)=>`<li><span class="n">${i+1}</span><span>${esc(p)}</span></li>`).join('')}</ol>`:''}${t.sponsor?`<p class="empty">Prizes from ${esc(t.sponsor)}</p>`:''}<p style="margin:16px 0 0"><a class="btn sm" href="play">${live?'Enter the tournament':'Get ready'}</a></p></div>`}).catch(()=>{});
 })();
 </script>
 </body>

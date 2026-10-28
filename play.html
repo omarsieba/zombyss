@@ -12,14 +12,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/game.88109a6754.css">
+<link rel="stylesheet" href="css/game.e1267e2096.css">
 <style>:root{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0}</style>
 </head>
 <body>
 <canvas id="cv" aria-label="City arena"></canvas>
 <div id="tags"></div>
 <div id="vig"></div><div id="hurt"></div><div id="flash"></div>
-<div id="load"><div>ENTERING HOLLOWMERE<small id="loadT">Lighting the candles, waking the dead…</small></div></div>
+<div id="load"><div>ENTERING HOLLOWMERE<div class="lbar" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100"><i id="loadBar"></i></div><small id="loadP" class="num">Loading the game engine…</small><small id="loadT">Lighting the candles, waking the dead…</small></div></div>
 
 <div class="hud" id="feed"></div>
 <div class="hud" id="top" hidden>
@@ -80,7 +80,7 @@
     <details class="board" id="ladderBox"><summary>Season ladder</summary><div class="plist" id="ladderList"></div></details>
     <details class="board" id="infBox"><summary>🧟 Top infectors</summary><div class="plist" id="infList"></div></details>
     <span class="chip" id="netChip"><i></i><span>Checking online mode…</span></span>
-    <nav class="mlinks" id="mLinks" aria-label="More"><a href="guide.html" target="_blank" rel="noopener" data-l="guide.html">Guide</a><a href="privacy.html" target="_blank" rel="noopener" data-l="privacy.html">Privacy</a><a href="support.html" target="_blank" rel="noopener" data-l="support.html">Support</a><a href="index.html" data-l="index.html" id="mHome">Website</a></nav>
+    <nav class="mlinks" id="mLinks" aria-label="More"><a href="guide" target="_blank" rel="noopener" data-l="guide">Guide</a><a href="privacy" target="_blank" rel="noopener" data-l="privacy">Privacy</a><a href="support" target="_blank" rel="noopener" data-l="support">Support</a><a href="./" data-l="./" id="mHome">Website</a></nav>
     <button class="btn ghost howbtn" id="bGuide" type="button">📖 How to play</button><button class="btn ghost howbtn" id="bOpts" type="button">⚙ Settings</button>
     </div>
   </div>
@@ -261,6 +261,6 @@
 <script src="js/vendor/SkeletonUtils.js"></script>
 <script src="js/vendor/BufferGeometryUtils.js"></script>
 <script src="js/vendor/peerjs.min.js"></script>
-<script src="js/game.a5f11ece9f.js"></script>
+<script src="js/game.76c634682a.js"></script>
 </body>
 </html>
