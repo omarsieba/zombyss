@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zombyss Admin</title>
+<style>
+:root{--bg:#12121c;--panel:#1c1d2b;--ink:#f1f2f8;--mute:#a3a8bd;--line:#33364a;--acc:#ffc531;--bad:#ff5a6e;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,sans-serif;padding:24px 16px}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{margin:0;font-size:26px}h2{margin:0 0 8px;font-size:18px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mute);margin-bottom:10px}
+input,textarea{font:inherit;color:var(--ink);background:#0f1018;border:1px solid var(--line);border-radius:8px;padding:9px 10px}
+textarea{min-height:90px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:10px 16px;background:var(--acc);color:#1b1404;cursor:pointer}
+button.del{background:transparent;color:var(--bad);border:1px solid var(--bad);padding:6px 10px}
+.t{border-top:1px solid var(--line);padding:10px 0;display:flex;flex-direction:column;gap:4px}.t:first-child{border-top:0}
+.muted{color:var(--mute);font-size:13px}#msg{min-height:20px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Zombyss · Admin</h1>
+  <section>
+    <label>Admin key (the ADMIN_KEY you set on the server)<input type="password" id="key" autocomplete="off"></label>
+    <button id="load">Load</button>
+  </section>
+  <section><h2>Players</h2><div id="stats" class="muted">Enter your key and load.</div></section>
+  <section>
+    <h2>New tournament</h2>
+    <label>Name<input id="name" placeholder="Friday Night Horde"></label>
+    <div class="row"><label>Starts (your local time)<input type="datetime-local" id="starts"></label><label>Ends<input type="datetime-local" id="ends"></label></div>
+    <label>Prizes, one per line (1st place first)<textarea id="prizes" placeholder="500 EGP voucher&#10;Free meal for two&#10;Free dessert"></textarea></label>
+    <label>Mode<select id="tmode" style="font:inherit;color:var(--ink);background:#0f1018;border:1px solid var(--line);border-radius:8px;padding:9px 10px"><option value="ffa">Solo · everyone for themselves</option><option value="duo">Duo · teams of 2</option><option value="squad">Team · teams of 4</option></select></label>
+    <label>Sponsor (optional)<input id="sponsor" placeholder="Your restaurant or café"></label>
+    <button id="create">Create tournament</button>
+    <p id="msg" class="muted" role="status"></p>
+  </section>
+  <section><h2>Scheduled and past</h2><div id="list" class="muted">Enter your key and load.</div></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const call=async(m,u,b)=>{const r=await fetch('/api/admin/tournaments'+(u||''),{method:m,headers:{'Content-Type':'application/json','x-admin-key':$('#key').value},body:b?JSON.stringify(b):undefined});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||r.status);return j};
+const fmt=t=>new Date(t).toLocaleString();
+async function stats(){try{const r=await fetch('/api/admin/stats',{headers:{'x-admin-key':$('#key').value}});const j=await r.json();if(!r.ok)throw new Error(j.error||r.status);
+  $('#stats').innerHTML=`<p><b style="font-size:22px;color:var(--ink)">${j.players}</b> players · ${j.today} joined today · ${j.week} this week · ${j.games} rounds played · password emails ${j.mail?'<b style="color:#8ee04e">on</b>':'<b style="color:var(--bad)">off (set SMTP_URL)</b>'}</p>`+
+  '<table style="width:100%;border-collapse:collapse;font-size:13px"><tr><th align="left">Name</th><th align="left">Username</th><th align="left">Email</th><th align="right">RP</th><th align="right">Rounds</th><th align="right">Joined</th></tr>'+
+  j.recent.map(u=>`<tr><td>${esc(u.name)}</td><td>${esc(u.username)}</td><td>${esc(u.email||'–')}</td><td align="right">${u.rp}</td><td align="right">${u.games}</td><td align="right">${new Date(u.created).toLocaleDateString()}</td></tr>`).join('')+'</table>'}catch(e){$('#stats').textContent='Error: '+e.message}}
+async function load(){try{const j=await call('GET');$('#list').innerHTML=j.rows.length?j.rows.map(t=>`<div class="t"><b>${esc(t.name)}</b><span class="muted">${fmt(t.starts)} → ${fmt(t.ends)} · ${({ffa:'Solo',duo:'Duo',squad:'Team'})[t.mode]||'Solo'}${t.sponsor?' · '+esc(t.sponsor):''}</span><span class="muted">${t.prizes.map((p,i)=>'#'+(i+1)+' '+esc(p)).join(' · ')}</span><span>${t.top.slice(0,5).map((r,i)=>(i+1)+'. '+esc(r.n)+' '+r.score+' pts').join(' · ')||'<span class="muted">No scores yet</span>'}</span><div><button class="del" data-id="${t.id}">Delete</button></div></div>`).join(''):'No tournaments yet.'}catch(e){$('#list').textContent='Error: '+e.message}}
+$('#load').onclick=()=>{load();stats()};
+$('#create').onclick=async()=>{try{await call('POST','',{name:$('#name').value,starts:new Date($('#starts').value).toISOString(),ends:new Date($('#ends').value).toISOString(),prizes:$('#prizes').value,sponsor:$('#sponsor').value,mode:$('#tmode').value});$('#msg').textContent='Created.';load()}catch(e){$('#msg').textContent='Error: '+e.message}};
+$('#list').addEventListener('click',async e=>{const id=e.target.dataset&&e.target.dataset.id;if(!id)return;try{await call('DELETE','/'+id);load()}catch(err){$('#msg').textContent='Error: '+err.message}});
+</script>
+</body>
+</html>

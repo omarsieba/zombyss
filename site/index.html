@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zombyss · 20 survivors. One walks out.</title>
+<meta name="description" content="Zombyss is a free multiplayer zombie survival game. 20 survivors, one town, one winner. Play Normal, Ranked or Tournaments with your friends, right in your browser.">
+<meta property="og:title" content="Zombyss · 20 survivors. One walks out.">
+<meta property="og:description" content="Free multiplayer zombie survival. Outlast the horde, outplay your friends, climb from Bronze to Master.">
+<meta property="og:image" content="/assets/web/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120d26">
+<link rel="icon" href="/assets/web/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/web/icon-512.png">
+<link rel="preload" as="image" href="/assets/web/keyart.jpg" media="(min-width: 700px)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titan+One&family=Barlow:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Zombyss: night-violet base, toxic lime from the logo, sky cyan, candle-gold calls to action.
+   Titan One (the logo's letterforms) for headings, Barlow for reading. */
+:root{
+  --night:#120d26; --deep:#1b1440; --violet:#2c2163; --line:rgba(255,255,255,.12);
+  --lime:#a6e83f; --lime-d:#3f9a24; --cyan:#7ee8ff; --gold:#ffc531; --gold-d:#a37800; --blood:#e0312f; --bone:#f4efe2; --mute:#b9b2d6;
+  --display:"Titan One","Arial Rounded MT Bold","Arial Black",sans-serif; --ui:Barlow,system-ui,sans-serif;
+  --pad:max(20px,env(safe-area-inset-left,0px)); --max:1200px; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--bone);font:500 17px/1.6 var(--ui);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+h2{font:400 clamp(34px,5.4vw,58px)/1.02 var(--display);margin:0 0 12px;color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.35)}
+h3{font-family:var(--display);font-weight:400}
+.lede{font-size:clamp(17px,1.8vw,19px);color:var(--mute);max-width:58ch;margin:0 0 30px}
+section{scroll-margin-top:70px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:400 20px/1 var(--display);letter-spacing:.02em;text-decoration:none;border-radius:14px;padding:17px 28px;border:0;cursor:pointer;color:#1c1504;background:linear-gradient(180deg,#ffe06b,var(--gold));box-shadow:0 6px 0 var(--gold-d),0 14px 30px rgba(0,0,0,.35);text-shadow:0 1px 0 rgba(255,255,255,.5);transition:transform .08s,box-shadow .08s}
+.btn:hover{filter:brightness(1.05)}.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--gold-d)}
+.btn.big{font-size:clamp(22px,2.6vw,28px);padding:20px 36px;border-radius:18px}
+.btn.sm{font-size:16px;padding:11px 18px;border-radius:12px;box-shadow:0 4px 0 var(--gold-d)}
+.store{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:rgba(10,7,24,.6);backdrop-filter:blur(6px);color:#fff;text-decoration:none;min-width:170px}
+.store span{display:flex;flex-direction:column;line-height:1.1;font-size:12px;text-align:left}.store b{font-size:17px}
+.store[aria-disabled="true"]{opacity:.7;pointer-events:none}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .25s,box-shadow .25s}
+.nav.solid{background:rgba(18,13,38,.86);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:22px;height:68px}
+.nav .wm{height:42px;width:auto}
+.nav a.l{font-weight:700;font-size:15px;text-decoration:none;color:#fff;opacity:.88}.nav a.l:hover{opacity:1}
+@media (max-width:860px){.nav a.l{display:none}.nav .wm{height:34px}}
+
+/* hero */
+.hero{position:relative;min-height:max(640px,100svh);display:flex;align-items:center;justify-content:center;text-align:center;isolation:isolate;overflow:hidden}
+.hero picture{position:absolute;inset:0;z-index:-2}
+.hero picture img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(18,13,38,.5) 0%,rgba(18,13,38,0) 16%,rgba(18,13,38,0) 55%,rgba(18,13,38,.35) 80%,var(--night) 100%),
+  radial-gradient(60% 45% at 50% 30%,rgba(18,13,38,0),rgba(18,13,38,.28))}
+.hero .wrap{padding-top:90px;padding-bottom:70px;display:flex;flex-direction:column;align-items:center}
+.logo{width:min(780px,92vw);height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+@media (prefers-reduced-motion:no-preference){.logo{animation:drop .9s cubic-bezier(.2,1.4,.4,1) both}@keyframes drop{from{opacity:0;transform:translateY(-40px) scale(.92)}to{opacity:1;transform:none}}}
+.hero h1{font:400 clamp(28px,4.2vw,50px)/1.08 var(--display);margin:6px 0 12px;color:#fff;text-shadow:0 4px 0 #0b0716,0 0 30px rgba(0,0,0,.5)}
+.hero .sub{font-size:clamp(17px,1.9vw,20px);font-weight:700;color:#fff;max-width:46ch;margin:0 0 28px;text-shadow:0 2px 0 #0b0716,0 2px 14px rgba(0,0,0,.9)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.note{margin:18px 0 0;font-size:14.5px;font-weight:700;color:#fff;opacity:.85;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+#count{color:var(--gold)}
+
+/* modes */
+.modes{padding:clamp(56px,8vw,100px) 0}
+.mcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.mc{position:relative;border-radius:22px;overflow:hidden;background:var(--deep);border:2px solid var(--c);box-shadow:0 0 0 4px rgba(0,0,0,.25),0 20px 40px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.mc .art{position:relative;aspect-ratio:16/10;overflow:hidden}
+.mc .art img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mc:hover .art img{transform:scale(1.04)}
+.mc .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,var(--deep))}
+.mc .tag{position:absolute;top:14px;left:14px;z-index:1;font:400 15px/1 var(--display);padding:8px 12px;border-radius:10px;background:var(--c);color:#14102a}
+.mc .body{padding:4px 22px 24px;margin-top:-30px;position:relative;z-index:1}
+.mc h3{font-size:34px;line-height:1;margin:0 0 8px;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.4)}
+.mc p{margin:0 0 12px;color:var(--mute);font-size:16px}
+.mc ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:15px;font-weight:700}
+.mc li{display:flex;gap:8px}.mc li::before{content:"";flex:none;width:8px;height:8px;border-radius:2px;background:var(--c);margin-top:8px;transform:rotate(45deg)}
+.mc.n{--c:var(--lime)}.mc.r{--c:#b48cff}.mc.t{--c:var(--gold)}
+.ranks{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:4%;background:radial-gradient(circle at 50% 40%,#4a2f8a,#1b1440 70%)}
+.ranks svg{width:15%;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+@media (max-width:900px){.mcards{grid-template-columns:1fr;max-width:560px}}
+
+/* round timeline */
+.round{padding:clamp(40px,6vw,80px) 0;background:radial-gradient(1100px 380px at 80% 100%,rgba(224,49,47,.16),transparent 70%)}
+.track{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.track::before{content:"";position:absolute;left:0;right:0;top:27px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--lime) 0%,var(--gold) 30%,var(--cyan) 50%,#ff7a2a 72%,var(--blood) 100%)}
+.track li{position:relative;padding-right:16px}
+.track .t{font:400 40px/1 var(--display);color:#fff;display:block;background:var(--night);padding-right:10px;width:max-content;position:relative}
+.track h3{font-size:20px;margin:22px 0 4px;color:#fff;line-height:1.2}
+.track p{margin:0;font-size:15px;color:var(--mute);line-height:1.45}
+.track li:nth-child(3) h3{color:var(--cyan)}.track li:nth-child(5) h3{color:#ff6b5e}
+@media (max-width:900px){.track{grid-template-columns:1fr;gap:22px;padding-left:30px}.track::before{left:4px;right:auto;top:6px;bottom:6px;width:6px;height:auto;background:linear-gradient(180deg,var(--lime),var(--gold) 30%,var(--cyan) 50%,#ff7a2a 72%,var(--blood))}.track .t{background:none;font-size:32px}.track h3{margin-top:4px}}
+
+/* heroes: character select */
+.heroes{padding:clamp(56px,8vw,100px) 0;background:linear-gradient(180deg,transparent,rgba(44,33,99,.55) 25%,rgba(44,33,99,.55) 75%,transparent)}
+.select{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,4vw,56px);align-items:center}
+.stage{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:2/3;max-height:640px;background:radial-gradient(circle at 50% 35%,var(--hc,#3f7fe0),#120d26 75%);border:3px solid var(--hc);box-shadow:0 0 50px color-mix(in srgb,var(--hc) 45%,transparent)}
+.stage img{width:100%;height:100%;object-fit:cover}
+.stage .nm{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;background:linear-gradient(180deg,transparent,rgba(10,7,24,.92));font:400 clamp(34px,4vw,50px)/1 var(--display);color:#fff;text-shadow:0 4px 0 var(--hc)}
+.info h3.cls{margin:0;font-size:22px;color:var(--hc)}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 18px;font-weight:700;color:var(--mute)}
+.meta b{color:#ff5a6e;letter-spacing:2px}
+.skill{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);margin-bottom:12px}
+.skill .k{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font:400 24px/1 var(--display);color:#14102a;background:var(--hc)}
+.skill h4{margin:0 0 2px;font-size:18px;color:#fff}.skill h4 span{font-weight:600;font-size:14px;color:var(--mute);margin-left:6px}
+.skill p{margin:0;font-size:15.5px;color:var(--mute);line-height:1.45}
+.roster{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;margin-top:22px}
+.roster button{padding:0;border:3px solid transparent;border-radius:16px;background:var(--deep);cursor:pointer;overflow:hidden;aspect-ratio:1;transition:transform .12s}
+.roster button img{width:100%;height:100%;object-fit:cover}
+.roster button[aria-selected="true"]{border-color:var(--c);transform:translateY(-4px);box-shadow:0 8px 20px color-mix(in srgb,var(--c) 40%,transparent)}
+.roster button:hover{transform:translateY(-3px)}
+@media (max-width:900px){.select{grid-template-columns:1fr}.stage{aspect-ratio:4/5;max-height:520px}.roster{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* features */
+.features{padding:clamp(56px,8vw,100px) 0}
+.feat{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center;margin-top:clamp(36px,5vw,64px)}
+.feat:nth-of-type(even) .pic{order:2}
+.feat .pic{border-radius:22px;overflow:hidden;border:2px solid var(--line);box-shadow:0 24px 50px rgba(0,0,0,.45);aspect-ratio:16/10}
+.feat .pic img{width:100%;height:100%;object-fit:cover}
+.feat h3{font-size:clamp(28px,3.4vw,40px);line-height:1.05;margin:0 0 10px;color:#fff}
+.feat p{margin:0;color:var(--mute);font-size:17.5px;max-width:44ch}
+.feat .kick{display:inline-block;font:400 15px/1 var(--display);color:var(--fc);margin-bottom:10px}
+@media (max-width:900px){.feat{grid-template-columns:1fr}.feat:nth-of-type(even) .pic{order:0}}
+
+/* ranked */
+.compete{padding:clamp(56px,8vw,100px) 0;background:radial-gradient(900px 400px at 15% 0%,rgba(180,140,255,.14),transparent 70%)}
+.ladder{display:flex;justify-content:space-between;gap:10px;margin:10px 0 40px;flex-wrap:wrap}
+.rk{flex:1 1 0;min-width:110px;text-align:center;padding:16px 10px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.rk svg{width:64px;height:auto;margin:0 auto 8px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))}
+.rk b{display:block;font:400 20px/1 var(--display);color:var(--rc)}.rk span{font-size:13.5px;color:var(--mute);font-weight:700}
+.boards{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;align-items:start}
+.board h3{font-size:24px;margin:0 0 10px;color:#fff}
+.board ol{list-style:none;padding:0;margin:0}
+.board li{display:grid;grid-template-columns:28px 34px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:15.5px;font-weight:700}
+.board li .n{font:400 18px/1 var(--display);color:var(--mute)}
+.board li img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:var(--deep)}
+.board li .v{color:var(--gold);font-variant-numeric:tabular-nums}
+.board .empty{color:var(--mute);font-size:15px;font-weight:600;display:block}
+.tour{background:linear-gradient(160deg,rgba(255,197,49,.18),rgba(224,49,47,.22));border:2px solid rgba(255,197,49,.55);border-radius:20px;padding:22px}
+.tour .when{font-weight:800;color:var(--gold);font-size:14px}
+.tour h3{margin:6px 0 10px;font-size:28px}
+.tour ol.prizes li{grid-template-columns:34px 1fr;border:0;padding:3px 0}.tour ol.prizes .n{color:var(--gold)}
+@media (max-width:980px){.boards{grid-template-columns:1fr}}
+
+/* news */
+.news{padding:clamp(56px,8vw,100px) 0}
+.ncards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.nc{border-radius:20px;overflow:hidden;background:var(--deep);border:1px solid var(--line)}
+.nc img{aspect-ratio:16/9;width:100%;object-fit:cover}
+.nc div{padding:16px 20px 22px}
+.nc time{font-size:13px;font-weight:800;color:var(--lime)}
+.nc h3{margin:4px 0 6px;font-size:22px;line-height:1.15;color:#fff}
+.nc p{margin:0;color:var(--mute);font-size:15.5px;line-height:1.5}
+@media (max-width:900px){.ncards{grid-template-columns:1fr;max-width:560px}}
+
+/* faq + final */
+.faq{padding:clamp(56px,8vw,90px) 0}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0;max-width:820px}
+.faq summary{cursor:pointer;font-weight:800;font-size:18.5px;color:#fff;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 26px/.8 var(--display);color:var(--lime)}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--mute);max-width:70ch}
+.final{position:relative;padding:clamp(70px,10vw,130px) 0;text-align:center;overflow:hidden;isolation:isolate}
+.final::before{content:"";position:absolute;inset:0;z-index:-1;background:url(/assets/web/feat-boss.jpg) center/cover;opacity:.28;filter:saturate(.8)}
+.final::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--night),rgba(18,13,38,.4) 40%,var(--night))}
+.final img{width:min(520px,80vw);margin:0 auto 18px}
+.final p{font-size:19px;font-weight:700;margin:0 0 26px;color:#fff}
+footer{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));font-size:14.5px;color:var(--mute)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
+footer .fl{margin-right:auto}footer .fl img{height:34px;width:auto}
+footer a{color:var(--mute);font-weight:700;text-decoration:none}footer a:hover{color:#fff}
+.socials{display:flex;gap:10px}.socials a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.socials svg{width:18px;height:18px;fill:currentColor}
+</style>
+</head>
+<body>
+<header class="nav" id="nav"><div class="wrap">
+  <a href="/" aria-label="Zombyss home" style="margin-right:auto;display:flex"><img class="wm" src="/assets/web/logo-wordmark.svg" alt="Zombyss" width="236" height="64"></a>
+  <a class="l" href="#modes">Modes</a><a class="l" href="#heroes">Heroes</a><a class="l" href="#compete">Ranked</a><a class="l" href="#news">News</a><a class="l" href="/guide">How to play</a>
+  <a class="btn sm" href="/play">Play free</a>
+</div></header>
+
+<main>
+<section class="hero" aria-labelledby="heroT">
+  <picture><source media="(max-width: 699px)" srcset="/assets/web/keyart-m.jpg"><img src="/assets/web/keyart.jpg" alt="Eight heroes run from the zombie horde through the town of Hollowmere" fetchpriority="high"></picture>
+  <div class="wrap">
+    <img class="logo" src="/assets/web/logo.svg" alt="Zombyss · Last survivor" width="780" height="271">
+    <h1 id="heroT">20 survivors. One walks out.</h1>
+    <p class="sub">A free multiplayer zombie game. Outlast the horde, outplay your friends, and if you get bitten, hunt them down.</p>
+    <div class="cta">
+      <a class="btn big" href="/play">Play free now</a>
+      <a class="store" id="gp" href="#" aria-disabled="true"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M1 1l12 11L1 23c-.6-.3-1-.9-1-1.7V2.7C0 1.9.4 1.3 1 1z" fill="#34d399"/><path d="M17 8l-4 4 4 4 4-2.4c1.3-.8 1.3-2.4 0-3.2z" fill="#fbbf24"/><path d="M1 1c.4-.2 1-.2 1.6.1L17 8l-4 4z" fill="#60a5fa"/><path d="M13 12l4 4-14.4 6.9c-.6.3-1.2.3-1.6.1z" fill="#f87171"/></svg><span id="gpL">Coming soon to<b>Google Play</b></span></a>
+      <a class="store" id="as" href="#" aria-disabled="true"><svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true"><path fill="#fff" d="M16.4 12.7c0-2.9 2.4-4.3 2.5-4.4-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-2 0-3.8 1.2-4.8 2.9-2.1 3.6-.5 8.8 1.5 11.7 1 1.4 2.1 3 3.6 2.9 1.5-.1 2-.9 3.8-.9 1.7 0 2.2.9 3.8.9 1.6 0 2.6-1.4 3.5-2.9 1.1-1.6 1.6-3.2 1.6-3.3 0 0-3.1-1.2-3.1-4.6zM13.5 4.1c.8-1 1.3-2.3 1.2-3.6-1.2 0-2.6.8-3.4 1.8-.8.9-1.4 2.2-1.3 3.5 1.3.1 2.6-.7 3.5-1.7z"/></svg><span id="asL">Coming soon to<b>App Store</b></span></a>
+    </div>
+    <p class="note">No download · Phone, tablet and PC · Free<span id="countWrap" hidden> · <span id="count"></span> survivors joined</span></p>
+  </div>
+</section>
+
+<section class="modes" id="modes" aria-labelledby="modesT"><div class="wrap">
+  <h2 id="modesT">Choose how you play</h2>
+  <p class="lede">Every match drops 20 survivors into Hollowmere. Bring up to three friends in your party, or go in alone.</p>
+  <div class="mcards">
+    <article class="mc n"><div class="art"><span class="tag">Normal</span><img src="/assets/web/feat-play.jpg" alt="" loading="lazy"></div><div class="body">
+      <h3>Normal</h3><p>Jump in, have fun, learn the heroes. No pressure, no rank to lose.</p>
+      <ul><li>Solo, Duo or Team of four</li><li>Match found in under 20 seconds</li><li>Hero XP and missions</li></ul></div></article>
+    <article class="mc r"><div class="art"><span class="tag">Ranked</span><div class="ranks" id="rankArt"></div></div><div class="body">
+      <h3>Ranked</h3><p>Win to climb, finish in the bottom half and you drop. A new season every month.</p>
+      <ul><li>Bronze, Silver, Gold, Diamond, Master</li><li>Matched with players of your rank</li><li>Season rewards you can show off</li></ul></div></article>
+    <article class="mc t"><div class="art"><span class="tag">Tournament</span><img src="/assets/web/feat-boss.jpg" alt="" loading="lazy"></div><div class="body">
+      <h3>Tournaments</h3><p>Scheduled events with real prizes. Play as many matches as you like; your best score counts.</p>
+      <ul><li>Announced on the main menu</li><li>Live leaderboard</li><li>Prizes from our partners</li></ul></div></article>
+  </div>
+</div></section>
+
+<section class="round" id="round" aria-labelledby="roundT"><div class="wrap">
+  <h2 id="roundT">Four minutes in Hollowmere</h2>
+  <p class="lede">Every round starts with everyone together in the town square. This is what is coming for you.</p>
+  <ol class="track">
+    <li><span class="t">0:00</span><h3>The dead rise</h3><p>A zombie climbs out of the ground every five seconds, anywhere in town. Grab chests for magic items.</p></li>
+    <li><span class="t">1:00</span><h3>A price on your head</h3><p>The leading survivor becomes the bounty. Every zombie hunts them first.</p></li>
+    <li><span class="t">1:30</span><h3>One touch turns you</h3><p>Zombies run you down without stopping. A single touch and you are one of them.</p></li>
+    <li><span class="t">2:00</span><h3>The horde grows</h3><p>The dead rise faster. Every decoy and skill counts now.</p></li>
+    <li><span class="t">4:00</span><h3>The Grave King</h3><p>A giant that cannot be killed climbs out of his crypt. Do not be under his fist.</p></li>
+  </ol>
+</div></section>
+
+<section class="heroes" id="heroes" aria-labelledby="heroesT"><div class="wrap">
+  <h2 id="heroesT">Pick your hero</h2>
+  <p class="lede">Four heroes and four heroines, each with two skills. Play one a lot and they level up with new looks.</p>
+  <div class="select">
+    <div class="stage" id="stage"><img id="stageImg" src="/assets/web/hero-full-0.jpg" alt=""><div class="nm" id="stageName">Guardian</div></div>
+    <div class="info" id="info" aria-live="polite"></div>
+  </div>
+  <div class="roster" id="roster" role="tablist" aria-label="Heroes"></div>
+</div></section>
+
+<section class="features" aria-labelledby="featT"><div class="wrap">
+  <h2 id="featT">Every second is a decision</h2>
+  <div class="feat" style="--fc:var(--lime)"><div class="pic"><img src="/assets/web/feat-play.jpg" alt="A survivor surrounded by zombies in the town square" loading="lazy"></div><div>
+    <span class="kick">Bitten? You are not out</span><h3>Come back as a zombie</h3><p>Get caught and you rise as one of them. Hunt down the friends who left you behind, predict the winner, or take control of the Grave King.</p></div></div>
+  <div class="feat" style="--fc:var(--gold)"><div class="pic"><img src="/assets/web/feat-decoy.jpg" alt="A ringing decoy lantern pulling the horde away" loading="lazy"></div><div>
+    <span class="kick">Outsmart the horde</span><h3>Drop a decoy</h3><p>Toss a ringing lantern behind you and every zombie nearby chases it instead of you. Five seconds to get away.</p></div></div>
+  <div class="feat" style="--fc:var(--cyan)"><div class="pic"><img src="/assets/web/feat-items.jpg" alt="A survivor flying over the horde on a broomstick" loading="lazy"></div><div>
+    <span class="kick">Your emergency exit</span><h3>Grab magic items</h3><p>Chests hold a Broomstick, a Ghost Potion, a Teleport Scroll and more. Fly over the horde, vanish, or appear in the quietest corner of town.</p></div></div>
+  <div class="feat" style="--fc:#ff6b5e"><div class="pic"><img src="/assets/web/feat-boss.jpg" alt="The Grave King in the graveyard" loading="lazy"></div><div>
+    <span class="kick">At 4:00</span><h3>The Grave King rises</h3><p>A giant zombie that cannot be killed. Watch the red circle, then get out of it.</p></div></div>
+</div></section>
+
+<section class="compete" id="compete" aria-labelledby="compT"><div class="wrap">
+  <h2 id="compT">Climb the ranks</h2>
+  <p class="lede">Ranked matches move your rank points up or down. A new season starts every month.</p>
+  <div class="ladder" id="ladderRow"></div>
+  <div class="boards">
+    <div class="board" id="tourBox"><div class="tour"><span class="when">Tournaments</span><h3>Next tournament coming soon</h3><p class="empty">Follow us so you hear about the first one.</p></div></div>
+    <div class="board"><h3>Today's best survivors</h3><ol id="daily"><li class="empty">Loading today's challenge…</li></ol></div>
+    <div class="board"><h3>Season leaders</h3><ol id="ladder"><li class="empty">Loading the ladder…</li></ol></div>
+  </div>
+</div></section>
+
+<section class="news" id="news" aria-labelledby="newsT"><div class="wrap">
+  <h2 id="newsT">What's new</h2>
+  <div class="ncards">
+    <article class="nc"><img src="/assets/web/feat-boss.jpg" alt="" loading="lazy"><div><time datetime="2026-10">October 2026</time><h3>Ranked, Normal and Tournaments</h3><p>Queue with your party and get a 20-survivor match in seconds. Ranked seasons start now.</p></div></article>
+    <article class="nc"><img src="/assets/web/feat-play.jpg" alt="" loading="lazy"><div><time datetime="2026-10">October 2026</time><h3>New heroes, new horde</h3><p>Eight new heroes, zombies spread over the whole town, one-touch infection and a faster Grave King. Only the last survivor wins.</p></div></article>
+    <article class="nc"><img src="/assets/web/feat-decoy.jpg" alt="" loading="lazy"><div><time datetime="2026-10">October 2026</time><h3>Decoys and stronger heroes</h3><p>Shoving is gone. Every hero's skills got stronger, and the town got a lot brighter.</p></div></article>
+  </div>
+</div></section>
+
+<section class="faq" aria-labelledby="faqT"><div class="wrap">
+  <h2 id="faqT">Questions</h2>
+  <details><summary>Is Zombyss free?</summary><p>Yes. The whole game is free, with no ads.</p></details>
+  <details><summary>Do I need to download anything?</summary><p>No. It runs in the browser on phones, tablets and computers. Apps for Android and iPhone are coming.</p></details>
+  <details><summary>Do I need an account?</summary><p>Not for Normal matches. Ranked and Tournaments need a free account so your rank and scores are saved on every device.</p></details>
+  <details><summary>How long do I wait for a match?</summary><p>Never more than about 20 seconds. Every Normal and Ranked match has 20 survivors.</p></details>
+  <details><summary>Can I play with my friends?</summary><p>Yes. Press Normal or Ranked, share your party code, and the leader presses Find match. Up to four friends go in together. You can also make a custom room with your own rules.</p></details>
+  <details><summary>How do I learn the controls?</summary><p>The game shows a short guide the first time you play, and the full <a href="/guide">how-to-play guide</a> explains everything.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <img src="/assets/web/logo-wordmark.svg" alt="Zombyss" loading="lazy" width="520" height="142">
+  <p>The horde is waiting. Your friends are already inside.</p>
+  <a class="btn big" href="/play">Play free now</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <a class="fl" href="/"><img src="/assets/web/logo-wordmark.svg" alt="Zombyss" width="125" height="34"></a>
+  <a href="/guide">How to play</a><a href="/privacy">Privacy</a><a href="/support">Support</a>
+  <div class="socials" id="socials"></div>
+  <span>© <span id="yr">2026</span> Tublya</span>
+</div></footer>
+
+<script src="/js/config.js"></script>
+<script>
+(()=>{
+  const CFG=window.HR_CONFIG||{},api=String(CFG.api||'').replace(/\/$/,''),$=s=>document.querySelector(s);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt=ms=>{const s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+  $('#yr').textContent=new Date().getFullYear();
+  // solid nav once you scroll past the top of the hero
+  const nav=$('#nav'),onS=()=>nav.classList.toggle('solid',scrollY>40);addEventListener('scroll',onS,{passive:true});onS();
+  // rank badges (same shapes as in the game)
+  const RANKS=[['Bronze',0,'#c27a43'],['Silver',200,'#c3ccd8'],['Gold',500,'#ffc531'],['Diamond',1000,'#5fd8ff'],['Master',1800,'#c06bff']];
+  const badge=i=>{const c=RANKS[i][2],gem=i>=3?'<path d="M20 13l7 6-7 12-7-12z" fill="#fff" opacity=".85"/>':i===2?'<path d="M20 12l2.6 5.4 5.9.8-4.3 4.1 1 5.8L20 25.4l-5.2 2.7 1-5.8-4.3-4.1 5.9-.8z" fill="#fff" opacity=".9"/>':'<path d="M13 18h14M13 23h14" stroke="#fff" stroke-width="2.5" opacity=".8"/>';
+    return `<svg viewBox="0 0 40 44" aria-hidden="true"><path d="M20 3l15 6v12c0 10-7 17-15 20C12 38 5 31 5 21V9z" fill="${c}" stroke="rgba(0,0,0,.45)" stroke-width="2"/>${gem}${i===4?'<path d="M10 7l5 4 5-6 5 6 5-4-2 7H12z" fill="#ffe08a"/>':''}</svg>`};
+  $('#rankArt').innerHTML=RANKS.map((_,i)=>badge(i)).join('');
+  $('#ladderRow').innerHTML=RANKS.map((r,i)=>`<div class="rk" style="--rc:${r[2]}">${badge(i)}<b>${r[0]}</b><span>${r[1]}+ RP</span></div>`).join('');
+  // character select
+  const HEROES_DATA=[{"name":"Guardian","cls":"Knight","fem":false,"col":"#3f7fe0","hp":4,"spd":4.6,"q":{"n":"Shield Bash","d":"Zombies in front of you are thrown back and stunned for 2.5 s.","cd":7},"e":{"n":"Bulwark","d":"Untouchable for 4 s, at full speed.","cd":14}},{"name":"Berserker","cls":"Paladin","fem":false,"col":"#d2552e","hp":4,"spd":4.7,"q":{"n":"Ground Slam","d":"Every zombie within 5.5 m is knocked away and down for 2 s.","cd":10},"e":{"n":"Charge","d":"Bull-rush 8 m, untouchable, scattering zombies where you land.","cd":7}},{"name":"Arcanist","cls":"Sorceress","fem":true,"col":"#8b5cf6","hp":3,"spd":4.9,"q":{"n":"Frost Nova","d":"Zombies within 9 m crawl at a quarter of their speed for 4 s.","cd":11},"e":{"n":"Blink","d":"Teleport 8 m ahead, even past a zombie in your way.","cd":7}},{"name":"Shadow","cls":"Assassin","fem":true,"col":"#2fae6a","hp":3,"spd":5.2,"q":{"n":"Smoke Bomb","d":"Vanish in smoke. Zombies and bots lose you for 4.5 s.","cd":12},"e":{"n":"Roll","d":"A quick dodge roll you cannot be hit during.","cd":5}},{"name":"Valkyrie","cls":"Shieldmaiden","fem":true,"col":"#43c6e6","hp":4,"spd":4.6,"q":{"n":"War Cry","d":"A battle roar. Zombies within 8 m flee from you for 3.5 s.","cd":12},"e":{"n":"Leap","d":"Jump 7 m over anything in your way and knock zombies off your landing spot.","cd":9}},{"name":"Witch","cls":"Hexblade","fem":true,"col":"#c94fe0","hp":3,"spd":4.9,"q":{"n":"Hex Totem","d":"Plant a cursed totem. Zombies inside its 5 m circle are rooted for 5 s.","cd":13},"e":{"n":"Phase","d":"Turn to mist for 3 s: untouchable and 25% faster.","cd":9}},{"name":"Huntress","cls":"Ranger","fem":true,"col":"#f0a03a","hp":3,"spd":5.1,"q":{"n":"Piercing Arrow","d":"An arrow flies 18 m and stuns every zombie it passes through for 2.5 s.","cd":9},"e":{"n":"Snare Trap","d":"Drop a hidden trap. When zombies step on it, every zombie within 2.6 m is held for 5 s.","cd":10}},{"name":"Priestess","cls":"Cleric","fem":true,"col":"#f2d77e","hp":3,"spd":4.8,"q":{"n":"Sanctuary","d":"A holy circle for 5.5 s. Zombies cannot step inside its 5 m radius.","cd":15},"e":{"n":"Heal","d":"Restore 1 heart and become untouchable for 1.5 s. Teammates within 6 m are healed too.","cd":16}}];
+  const H=HEROES_DATA;let cur=0;
+  $('#roster').innerHTML=H.map((h,i)=>`<button role="tab" id="tab${i}" aria-controls="info" aria-selected="${i===0}" style="--c:${h.col}" data-i="${i}" title="${esc(h.name)}"><img src="/assets/web/hero-${i}.png" alt="${esc(h.name)}" loading="lazy"></button>`).join('');
+  function show(i){cur=i;const h=H[i];document.querySelector('.select').style.setProperty('--hc',h.col);$('#stageImg').src=`/assets/web/hero-full-${i}.jpg`;$('#stageImg').alt=h.name;$('#stageName').textContent=h.name;
+    $('#info').innerHTML=`<h3 class="cls">${esc(h.cls)} · ${h.fem?'Heroine':'Hero'}</h3><div class="meta"><span>Hearts <b>${'♥'.repeat(h.hp)}</b></span><span>Speed ${h.spd}</span></div>
+      <div class="skill"><span class="k">Q</span><div><h4>${esc(h.q.n)}<span>${h.q.cd}s cooldown</span></h4><p>${esc(h.q.d)}</p></div></div>
+      <div class="skill"><span class="k">E</span><div><h4>${esc(h.e.n)}<span>${h.e.cd}s cooldown</span></h4><p>${esc(h.e.d)}</p></div></div>
+      <p style="margin:6px 0 0"><a class="btn sm" href="/play">Play as ${esc(h.name)}</a></p>`;
+    document.querySelectorAll('#roster button').forEach(b=>b.setAttribute('aria-selected',String(+b.dataset.i===i)))}
+  $('#roster').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(b)show(+b.dataset.i)});
+  $('#roster').addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const n=(cur+(e.key==='ArrowRight'?1:H.length-1))%H.length;show(n);$('#tab'+n).focus()});
+  show(0);H.forEach((_,i)=>{const im=new Image();im.src=`/assets/web/hero-full-${i}.jpg`});
+  // store buttons and social links come from js/config.js
+  const st=CFG.stores||{};
+  if(st.android){const a=$('#gp');a.href=st.android;a.removeAttribute('aria-disabled');$('#gpL').innerHTML='Get it on<b>Google Play</b>'}
+  if(st.ios){const a=$('#as');a.href=st.ios;a.removeAttribute('aria-disabled');$('#asL').innerHTML='Download on the<b>App Store</b>'}
+  const ICONS={tiktok:'M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.6V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z',instagram:'M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21 7a5.4 5.4 0 0 0-1.5-3.8A5.4 5.4 0 0 0 15.8 1.7C14.3 1.6 9.7 1.6 8.2 1.7a5.4 5.4 0 0 0-3.8 1.5A5.4 5.4 0 0 0 2.9 7c-.1 1.5-.1 6.1 0 7.6a5.4 5.4 0 0 0 1.5 3.8 5.4 5.4 0 0 0 3.8 1.5c1.5.1 6.1.1 7.6 0a5.4 5.4 0 0 0 3.8-1.5 5.4 5.4 0 0 0 1.5-3.8c.1-1.5.1-6.1 0-7.6z',discord:'M19.3 5.3A16.5 16.5 0 0 0 15.2 4l-.5 1a15 15 0 0 0-4.6 0l-.5-1a16.5 16.5 0 0 0-4.1 1.3A17 17 0 0 0 2.6 16.8a16.6 16.6 0 0 0 5 2.5l1.1-1.7a10.7 10.7 0 0 1-1.7-.8l.4-.3a11.8 11.8 0 0 0 10.2 0l.4.3a10.7 10.7 0 0 1-1.7.8l1.1 1.7a16.5 16.5 0 0 0 5-2.5 17 17 0 0 0-3.1-11.5zM9.5 14.5a1.9 1.9 0 1 1 1.8-1.9 1.9 1.9 0 0 1-1.8 1.9zm5 0a1.9 1.9 0 1 1 1.8-1.9 1.9 1.9 0 0 1-1.8 1.9z',youtube:'M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z'};
+  const so=CFG.socials||{};$('#socials').innerHTML=Object.keys(ICONS).filter(k=>so[k]).map(k=>`<a href="${esc(so[k])}" aria-label="Zombyss on ${k}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="${ICONS[k]}"/></svg></a>`).join('');
+  // live data from the game server
+  const portrait=h=>`<img src="/assets/web/hero-${Math.max(0,Math.min(7,h|0))}.png" alt="" loading="lazy">`;
+  if(!api){$('#daily').innerHTML='<li class="empty">Leaderboards appear here once the game server is running.</li>';$('#ladder').innerHTML='';return}
+  const get=p=>fetch(api+p).then(r=>r.ok?r.json():Promise.reject(r.status));
+  get('/stats/public').then(j=>{if(j.players>=50){$('#count').textContent=j.players.toLocaleString();$('#countWrap').hidden=false}}).catch(()=>{});
+  get('/leaderboard/daily').then(j=>{const r=(j.rows||[]).slice(0,8);$('#daily').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.h)}<span>${esc(x.n)}</span><span class="v">${fmt(x.ms)}</span></li>`).join(''):'<li class="empty">Nobody has played today\'s challenge yet. <a href="/play">Be first.</a></li>'}).catch(()=>{$('#daily').innerHTML='<li class="empty">The leaderboard is resting. Try again soon.</li>'});
+  get('/leaderboard/rank').then(j=>{const r=(j.rows||[]).slice(0,8);$('#ladder').innerHTML=r.length?r.map((x,i)=>`<li><span class="n">${i+1}</span>${portrait(x.hero)}<span>${esc(x.name)}</span><span class="v">${x.rp} RP</span></li>`).join(''):'<li class="empty">The season has just begun. Your first ranked win puts you on top.</li>'}).catch(()=>{$('#ladder').innerHTML=''});
+  get('/tournaments/current').then(j=>{const t=j.t;if(!t)return;const now=Date.now(),live=now>=t.starts&&now<t.ends,ms=(live?t.ends:t.starts)-now,d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,MN={ffa:'Solo',duo:'Duo',squad:'Team'};
+    $('#tourBox').innerHTML=`<div class="tour"><span class="when">${live?'Live now · ends in ':'Starts in '}${d?d+'d ':''}${h}h ${m}m · ${MN[t.mode]||'Solo'}</span><h3>${esc(t.name)}</h3>${(t.prizes||[]).length?`<ol class="prizes">${t.prizes.slice(0,5).map((p,i)=>`<li><span class="n">${i+1}</span><span>${esc(p)}</span></li>`).join('')}</ol>`:''}${t.sponsor?`<p class="empty">Prizes from ${esc(t.sponsor)}</p>`:''}<p style="margin:16px 0 0"><a class="btn sm" href="/play">${live?'Enter the tournament':'Get ready'}</a></p></div>`}).catch(()=>{});
+})();
+</script>
+</body>
+</html>
