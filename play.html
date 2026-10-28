@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/game.e1267e2096.css">
+<link rel="stylesheet" href="css/game.49c7129b8f.css">
 <style>:root{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0}</style>
 </head>
 <body>
@@ -115,7 +115,7 @@
 <div class="screen" id="results" hidden>
   <div class="panel rpanel">
     <div class="rleft">
-      <div class="logo" style="font-size:60px" id="rTitle">ROUND OVER</div>
+      <div class="rtitle" id="rTitle">ROUND OVER</div>
       <div class="plist res" id="rList"></div>
       <div class="rank" id="rRank"></div>
       <p class="muted" id="rNext"></p>
@@ -140,6 +140,7 @@
       <label class="orow"><span>Quality</span><select id="oQual"><option value="auto">Auto (adjusts to your device)</option><option value="high">High</option><option value="low">Low (fastest)</option></select></label>
       <label class="orow"><span>Shadows</span><input type="checkbox" id="oShadow"></label>
       <label class="orow"><span>Screen shake</span><input type="checkbox" id="oShake"></label></section>
+    <section id="oMatch" hidden><h2>Match</h2><div class="orow" style="cursor:default"><span>Leave this match and go back to the main menu</span><button class="btn" id="oLeave" type="button" style="font-size:18px;padding:8px 14px;background:var(--blood);color:#fff;box-shadow:0 4px 0 #7a1020">🚪 Leave</button></div></section>
     <section id="oKeysSec"><h2>Keys</h2><p class="lbl" style="margin:0 0 8px">Click a key, then press the new one. Esc cancels.</p><div id="oKeys" class="okeys"></div>
       <button class="btn ghost" id="oKeysReset" type="button">Reset keys</button></section>
   </article>
@@ -162,7 +163,7 @@
       <tr><td>Hero skills</td><td><kbd>Q</kbd> and <kbd>E</kbd></td><td>The two big buttons</td></tr>
       <tr><td>Use the item from a chest</td><td><kbd>R</kbd></td><td>Item button</td></tr>
       <tr><td>Drop a decoy (zombies chase it for 5 s)</td><td><kbd>F</kbd></td><td>Decoy button</td></tr>
-      <tr><td>Emotes and quick chat</td><td><kbd>T</kbd> then <kbd>1</kbd>–<kbd>8</kbd></td><td>Chat button</td></tr>
+      <tr><td>Emotes and quick chat</td><td><kbd>T</kbd> then <kbd>1</kbd>–<kbd>8</kbd></td><td>Chat button</td></tr><tr><td>Settings: sound, graphics, change your keys</td><td><kbd>Esc</kbd> or ⚙</td><td>⚙ button</td></tr>
       <tr><td>Bigger map</td><td>Click the map</td><td>Tap the map</td></tr>
       <tr><td>Zoom</td><td>Mouse wheel</td><td>–</td></tr>
       <tr><td>Watch someone else</td><td><kbd>Tab</kbd> or click</td><td>Tap the screen</td></tr>
@@ -261,6 +262,6 @@
 <script src="js/vendor/SkeletonUtils.js"></script>
 <script src="js/vendor/BufferGeometryUtils.js"></script>
 <script src="js/vendor/peerjs.min.js"></script>
-<script src="js/game.76c634682a.js"></script>
+<script src="js/game.204d13eb34.js"></script>
 </body>
 </html>

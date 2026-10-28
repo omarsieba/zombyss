@@ -8,11 +8,93 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/game.e1267e2096.css">
+<link rel="stylesheet" href="css/game.49c7129b8f.css">
 <link rel="icon" href="assets/web/icon-192.png">
 <style>html,body{height:auto;overflow:auto}body{margin:0;padding:16px;background:radial-gradient(circle at 50% 0,#3a2a5e,#1d1a45 50%,#0b0d14);min-height:100vh;touch-action:auto}.guide{margin:0 auto}.ghead{top:0}a.btn{text-decoration:none;display:inline-block}</style>
 </head>
 <body>
+<article class="guide" aria-labelledby="gTitle">
+    <header class="ghead"><div><span class="lbl">Zombyss</span><h1 id="gTitle">How to play</h1></div><a class="btn gclose" href="play">▶ Play now</a></header>
+    <nav class="gnav" aria-label="Guide sections"><a href="#g-goal">Goal</a><a href="#g-controls">Controls</a><a href="#g-round">A round</a><a href="#g-zombies">Zombies</a><a href="#g-fall">If you fall</a><a href="#g-items">Items</a><a href="#g-heroes">Heroes</a><a href="#g-points">Points &amp; rank</a><a href="#g-progress">Missions</a><a href="#g-modes">Modes</a><a href="#g-tips">Tips</a></nav>
 
+    <section id="g-goal"><h2>The goal</h2>
+      <p>You start in a haunted wizard town with the other players. Zombies keep rising anywhere in town, and one touch from a zombie infects you. There are two ways to win:</p>
+      <div class="gcards">
+      <div class="gcard"><b>🏆 Last survivor</b><span>Be the last one alive (or the last team in Duo and Team). The round ends the moment only one remains.</span></div></div>
+      <p>Everyone who falls comes back as a zombie and hunts the players who are left.</p></section>
+
+    <section id="g-controls"><h2>Controls</h2>
+      <table class="gtable"><thead><tr><th>Action</th><th>Computer</th><th>Phone</th></tr></thead><tbody>
+      <tr><td>Run</td><td><kbd>W A S D</kbd> or arrows</td><td>Drag anywhere on the left half</td></tr>
+      <tr><td>Sprint (uses stamina)</td><td><kbd>Shift</kbd></td><td>Sprint button (on/off)</td></tr>
+      <tr><td>Hero skills</td><td><kbd>Q</kbd> and <kbd>E</kbd></td><td>The two big buttons</td></tr>
+      <tr><td>Use the item from a chest</td><td><kbd>R</kbd></td><td>Item button</td></tr>
+      <tr><td>Drop a decoy (zombies chase it for 5 s)</td><td><kbd>F</kbd></td><td>Decoy button</td></tr>
+      <tr><td>Emotes and quick chat</td><td><kbd>T</kbd> then <kbd>1</kbd>–<kbd>8</kbd></td><td>Chat button</td></tr><tr><td>Settings: sound, graphics, change your keys</td><td><kbd>Esc</kbd> or ⚙</td><td>⚙ button</td></tr>
+      <tr><td>Bigger map</td><td>Click the map</td><td>Tap the map</td></tr>
+      <tr><td>Zoom</td><td>Mouse wheel</td><td>–</td></tr>
+      <tr><td>Watch someone else</td><td><kbd>Tab</kbd> or click</td><td>Tap the screen</td></tr>
+      </tbody></table></section>
+
+    <section id="g-round"><h2>A round, minute by minute</h2>
+      <ol class="gtime">
+        <li><b>0:00</b><span>Everyone starts together with no zombies around. Then one rises every 5 seconds, anywhere on the map, and a red circle on the ground warns you where. Treasure chests and supply crates appear around the map.</span></li>
+        <li><b>1:00</b><span>The <em>bounty</em> starts. The player with the most points glows gold with a crown on every map. Zombies hunt them harder.</span></li>
+        <li><b>2:00</b><span>The dead start rising faster.</span></li>
+        <li><b>2:30</b><span><em>The Grave King</em> climbs out of a crypt: a giant zombie that cannot be killed. A red circle shows where he is about to slam. Get out of it.</span></li>
+      </ol></section>
+
+    <section id="g-zombies"><h2>Zombies</h2>
+      <ul><li>A zombie infects you the moment it gets within arm's length, even if you are running past. Only armor or an untouchable skill saves you.</li>
+      <li>When several players stand together, the horde splits up and goes for all of them.</li>
+      <li>Zombies are slower than you, but they never get tired. Sprinting runs out of stamina.</li>
+      <li>Zombies with a name above them used to be a player or a bot.</li></ul></section>
+
+    <section id="g-fall"><h2>If you fall</h2>
+      <ul><li>3 seconds later you rise as a zombie. You have no health. <kbd>Q</kbd>/<kbd>E</kbd> lunge forward.</li>
+      <li>Catch a survivor to infect them: +40 points, or +120 if they are the bounty.</li>
+      <li><b>Predict the winner:</b> pick the survivor you think will win. If you are right you get +15 rank points.</li>
+      <li><b>Possess the Grave King:</b> when he is out, one zombie player at a time can control him for 30 seconds. Every survivor his slam hits counts as your infection.</li></ul></section>
+
+    <section id="g-items"><h2>Chests and crates</h2>
+      <div class="gcards g3"><div class="gcard"><b>❤️ Medkit</b><span>+1 heart</span></div><div class="gcard"><b>⚡ Energy drink</b><span>Skills and stamina refilled</span></div><div class="gcard"><b>🛡 Armor</b><span>Blocks the next bite</span></div></div>
+      <p>A <b>treasure chest</b> gives one magic item. You can carry one at a time. Use it with <kbd>R</kbd> or the item button.</p>
+      <div class="gcards g3"><div class="gcard"><b>🪄 Fire Wand</b><span>Blast a cone of fire: zombies in front are thrown back and stunned.</span></div><div class="gcard"><b>🧪 Haste Potion</b><span>Run 45% faster for 6 s with endless stamina.</span></div><div class="gcard"><b>🧹 Broomstick</b><span>Fly above the horde for 6 s. Nothing can bite you up there.</span></div><div class="gcard"><b>📜 Teleport Scroll</b><span>Vanish and reappear in the quietest corner of the map.</span></div><div class="gcard"><b>👻 Ghost Potion</b><span>Invisible for 5 s. Zombies and bots lose your trail.</span></div><div class="gcard"><b>🛡️ Holy Shield</b><span>Untouchable for 4 s.</span></div></div></section>
+
+    <section id="g-heroes"><h2>Heroes</h2>
+      <p>Pick your hero in the menu or the lobby. Every hero has two skills with a cooldown, and some have more hearts while others are faster.</p>
+      <div class="gheroes"><div class="ghero"><span class="ph" style="background:#3f7fe0">G</span><div><h3 style="color:#3f7fe0">Guardian</h3><div class="cl">Knight · ♥♥♥♥ · speed 4.6</div><p><b>Q · Shield Bash</b> (7s) Zombies in front of you are thrown back and stunned for 2.5 s.</p><p><b>E · Bulwark</b> (14s) Untouchable for 4 s, at full speed.</p></div></div><div class="ghero"><span class="ph" style="background:#d2552e">B</span><div><h3 style="color:#d2552e">Berserker</h3><div class="cl">Paladin · ♥♥♥♥ · speed 4.7</div><p><b>Q · Ground Slam</b> (10s) Every zombie within 5.5 m is knocked away and down for 2 s.</p><p><b>E · Charge</b> (7s) Bull-rush 8 m, untouchable, scattering zombies where you land.</p></div></div><div class="ghero"><span class="ph" style="background:#8b5cf6">A</span><div><h3 style="color:#8b5cf6">Arcanist</h3><div class="cl">Sorceress · ♥♥♥ · speed 4.9</div><p><b>Q · Frost Nova</b> (11s) Zombies within 9 m crawl at a quarter of their speed for 4 s.</p><p><b>E · Blink</b> (7s) Teleport 8 m ahead, even past a zombie in your way.</p></div></div><div class="ghero"><span class="ph" style="background:#2fae6a">S</span><div><h3 style="color:#2fae6a">Shadow</h3><div class="cl">Assassin · ♥♥♥ · speed 5.2</div><p><b>Q · Smoke Bomb</b> (12s) Vanish in smoke. Zombies and bots lose you for 4.5 s.</p><p><b>E · Roll</b> (5s) A quick dodge roll you cannot be hit during.</p></div></div><div class="ghero"><span class="ph" style="background:#43c6e6">V</span><div><h3 style="color:#43c6e6">Valkyrie</h3><div class="cl">Shieldmaiden · ♥♥♥♥ · speed 4.6</div><p><b>Q · War Cry</b> (12s) A battle roar. Zombies within 8 m flee from you for 3.5 s.</p><p><b>E · Leap</b> (9s) Jump 7 m over anything in your way and knock zombies off your landing spot.</p></div></div><div class="ghero"><span class="ph" style="background:#c94fe0">W</span><div><h3 style="color:#c94fe0">Witch</h3><div class="cl">Hexblade · ♥♥♥ · speed 4.9</div><p><b>Q · Hex Totem</b> (13s) Plant a cursed totem. Zombies inside its 5 m circle are rooted for 5 s.</p><p><b>E · Phase</b> (9s) Turn to mist for 3 s: untouchable and 25% faster.</p></div></div><div class="ghero"><span class="ph" style="background:#f0a03a">H</span><div><h3 style="color:#f0a03a">Huntress</h3><div class="cl">Ranger · ♥♥♥ · speed 5.1</div><p><b>Q · Piercing Arrow</b> (9s) An arrow flies 18 m and stuns every zombie it passes through for 2.5 s.</p><p><b>E · Snare Trap</b> (10s) Drop a hidden trap. When zombies step on it, every zombie within 2.6 m is held for 5 s.</p></div></div><div class="ghero"><span class="ph" style="background:#f2d77e">P</span><div><h3 style="color:#f2d77e">Priestess</h3><div class="cl">Cleric · ♥♥♥ · speed 4.8</div><p><b>Q · Sanctuary</b> (15s) A holy circle for 5.5 s. Zombies cannot step inside its 5 m radius.</p><p><b>E · Heal</b> (16s) Restore 1 heart and become untouchable for 1.5 s. Teammates within 6 m are healed too.</p></div></div></div></section>
+
+    <section id="g-points"><h2>Points and rank</h2>
+      <table class="gtable gpts"><thead><tr><th>In a round you earn</th><th>Points</th></tr></thead><tbody>
+      <tr><td>Every second alive</td><td>+1</td></tr><tr><td>Opening a treasure chest</td><td>+10</td></tr>
+      <tr><td>Surviving 30 seconds as the bounty</td><td>+40</td></tr>
+      <tr><td>Infecting a survivor (as a zombie)</td><td>+40</td></tr><tr><td>Infecting the bounty</td><td>+120</td></tr>
+      </tbody></table>
+      <p><b>Rank points (RP)</b> only change in <b>Ranked</b> matches: 1st place +28, 2nd +16, 3rd +9, the rest of the top half +3. Finish in the bottom half and you lose 6 to 15 RP (more at Diamond and Master). A correct prediction adds +10, and as a zombie every survivor you infect adds +3 (up to 10 a match). Every infection also counts on the season's <b>Top infectors</b> board.</p>
+      <div class="granks"><span style="color:#c27a43">Bronze · 0+ RP</span><span style="color:#c3ccd8">Silver · 200+ RP</span><span style="color:#ffc531">Gold · 500+ RP</span><span style="color:#5fd8ff">Diamond · 1000+ RP</span><span style="color:#c06bff">Master · 1800+ RP</span></div>
+      <p><b>Seasons:</b> a season lasts one calendar month. When a new one starts, everyone's rank points are halved. Diamond and Master players lose 20 RP a day after 7 days without playing.</p>
+      <p><b>Rank rewards:</b> Silver unlocks a spark trail, Gold an arcane aura, Diamond a spirit owl that follows you, Master a jewelled crown. Turn them on in the menu.</p></section>
+
+    <section id="g-progress"><h2>Missions and hero mastery</h2>
+      <ul><li><b>Missions:</b> 3 new daily missions every day and 3 weekly missions every week, the same for everyone. Daily ones give 120 hero XP, weekly ones 300. They count in every mode. Find them on the main menu.</li>
+      <li><b>Mastery:</b> every round gives XP to the hero you played. Level 3 adds a star to your name, level 5 a golden ring, level 7 a spark trail, level 10 a legend glow.</li></ul></section>
+
+    <section id="g-modes"><h2>Ways to play</h2>
+      <div class="gcards"><div class="gcard"><b>▶ Normal</b><span>Press Normal, invite friends with the party code, and the leader presses Find match. You are matched with other players into a 20-survivor game. No rank points, just fun.</span></div>
+      <div class="gcard"><b>🏆 Ranked</b><span>The same, but you win or lose rank points and climb from Bronze to Master. Sign in to play ranked.</span></div>
+      <div class="gcard"><b>Solo, Duo, Team</b><span>The party leader picks the mode. In Solo everyone is on their own. In Duo (2) and Team (4) your party plays together, a Priestess heals her teammates, and the last team standing wins.</span></div>
+      <div class="gcard"><b>Custom rooms</b><span>Pick your own room code, choose how many bots, and play with friends. No rank points.</span></div>
+      <div class="gcard"><b>🌙 Daily challenge</b><span>The same map for everyone today. Survive as long as you can. Your best time goes on today's leaderboard.</span></div>
+      <div class="gcard"><b>🏆 Tournaments</b><span>Scheduled events with real prizes. When one is live, sign in and press Join on the menu. Your best score counts.</span></div></div></section>
+
+    <section id="g-tips"><h2>Tips</h2>
+      <ul><li>Keep moving. A zombie that reaches you bites instantly.</li>
+      <li>Save a dash or escape skill for the moment you get cornered.</li>
+      <li>Toss a decoy behind you when the horde gets close: every zombie within 12 m chases it for 5 seconds.</li>
+      <li>As the bounty, run toward open ground. Every zombie on the map is coming for you.</li>
+      <li>Create an account so your rank, missions and mastery follow you to any phone or computer.</li></ul></section>
+    <footer class="gfoot"><a class="btn" href="play">PLAY ZOMBYSS</a></footer>
+  </article>
 </body>
 </html>
